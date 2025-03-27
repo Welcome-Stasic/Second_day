@@ -1,22 +1,22 @@
-const num1Input = document.getElementById('num1');
-const num2Input = document.getElementById('num2');
+const num1i = document.getElementById('num1');
+const num2i = document.getElementById('num2');
 const func = document.getElementById('func');
 const calculate = document.getElementById('calculate');
-const result = document.getElementById('result');
+const resultElem = document.getElementById('result');
 
 calculate.addEventListener('click', () => {
-    const num1 = parseFloat(num1Input.value);
-    const num2 = parseFloat(num2Input.value);
-    const operator = func.value;
+    const num1 = parseFloat(num1i.value);
+    const num2 = parseFloat(num2i.value);
+    const funcion = func.value;
 
     if (isNaN(num1) || isNaN(num2)) {
-        result.value = 'Заполните оба поля';
+        resultElem.value = 'Заполните оба поля';
         return;
     }
 
     let result;
 
-    switch (operator) {
+    switch (funcion) {
         case '+':
             result = num1 + num2;
             break;
@@ -28,15 +28,15 @@ calculate.addEventListener('click', () => {
             break;
         case '/':
             if (num2 === 0) {
-                resultInput.value = 'Делить на ноль нельзя(';
+                resultElem.value = 'Делить на ноль нельзя(';
                 return;
             }
             result = num1 / num2;
             break;
         default:
-            resultInput.value = 'Ощибка';
+            resultElem.value = 'Ошибка';
             return;
     }
 
-    result.value = result;
+    resultElem.value = result; 
 });
